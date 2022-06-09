@@ -190,11 +190,15 @@ queryBtn.addEventListener("click", myQuery);
 
 // PROBLEM 10 
 /*
-    In the function that you wrote for Problem 8, change the URL to test a couple different scenarios.
+    In the function that you wrote for Problem 8, 
+    change the URL to test a couple different scenarios.
 
     1: Send no queries on the URL -- what happened?
+    console says "You sent an empty query!"
+    node says "Cannot set headers after they are sent to the client"
 
     2: Send more than 1 query on the URL -- what happened?
+    console says "You sent query: animal with value: Lions?animal=Bears!"
 */
 
 // Edit code in Problem 8
@@ -207,21 +211,32 @@ queryBtn.addEventListener("click", myQuery);
 
 //PROBLEM 11
 /*
-    You are going to add the ability to POST to the server. You'll need to create a small form and write a function that makes a post request. Then you'll attach that function to the submit event on the form. We'll be creating a list of foods.
+    You are going to add the ability to POST to the server. 
+    You'll need to create a small form and write a function that makes a post request. 
+    Then you'll attach that function to the submit event on the form. We'll be creating a list of foods.
 
-    In the index.html file inside of the client folder, create a form with one text input field and a button. The input field should have a placeholder that tells the user to enter a food. And the button should indicate that it will add food into a list.
+    In the index.html file inside of the client folder, 
+    create a form with one text input field and a button. 
+    The input field should have a placeholder that tells the user to enter a food. 
+    And the button should indicate that it will add food into a list.
 
     In this file (script.js), create a function called createFood.
 
     Inside the function, select the input you just created in the HTML and save it to a variable called foodInput.
 
-    Next, create an object called body inside the function. It should have one key-value pair. The key should be newFood (make sure to match the case and spelling exactly) and the value should be the value of the food input.
+    Next, create an object called body inside the function. 
+    It should have one key-value pair. 
+    The key should be newFood (make sure to match the case and spelling exactly) 
+    and the value should be the value of the food input.
 
-    Now make an axios post request to /food. Inside the parentheses where you passed the URL in, pass in body as the second argument.
+    Now make an axios post request to /food. 
+    Inside the parentheses where you passed the URL in, pass in body as the second argument.
 
-    Use a .then to handle the promise returned from the axios call. Pass a callback function to the .then. Inside that callback, console log the res.data.
+    Use a .then to handle the promise returned from the axios call. 
+    Pass a callback function to the .then. Inside that callback, console log the res.data.
 
-    Based on what we did earlier to display this type of data, write code that will display the response in your HTML document.
+    Based on what we did earlier to display this type of data, 
+    write code that will display the response in your HTML document.
 */
 
 // CODE HERE 
