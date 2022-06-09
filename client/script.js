@@ -23,10 +23,12 @@ let sayHelloButton = document.querySelector("#say-hello-button")
 
 // CODE HERE
 
-sayHelloButton.addEventListener("mouseover", function changeColor(event) {
+const changeColor = (event) => {
     event.target.style.backgroundColor = "black";
     event.target.style.color = "white";
-});
+}
+
+sayHelloButton.addEventListener("mouseover", changeColor);
 
 // PROBLEM 3
 /*
@@ -39,10 +41,12 @@ sayHelloButton.addEventListener("mouseover", function changeColor(event) {
 
 // CODE HERE
 
-sayHelloButton.addEventListener("mouseout", function changeColor(event) {
+const changeColorBack = (event) => {
     event.target.style.backgroundColor = "";
     event.target.style.color = "";
-});
+}
+
+sayHelloButton.addEventListener("mouseout", changeColorBack);
 
 // PROBLEM 4
 /*
@@ -64,6 +68,7 @@ const sayHello = () => {
 
 // CODE HERE
 
+sayHelloButton.addEventListener("click", sayHello);
 
 // PROBLEM 5 
 /*
