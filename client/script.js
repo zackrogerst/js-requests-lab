@@ -83,9 +83,24 @@ sayHelloButton.addEventListener("click", sayHello);
     (in the intermediate instructions we'll come back to this function and add HTML).
 */
 
+/*
+prob 9
+    Back in the ohMy function on Problem 5, 
+    replace the console log in the promise's callback with a for loop that loops over res.data.
+
+    On each iteration of the loop, create a new p element. 
+    Set its textContent equal the string at the current index (i) 
+    and then append the new p element onto the document's body.
+*/
+
 const ohMy = () => {
     axios.get('http://localhost:3000/animals')
-        .then(res => { console.log(res.data) })
+        .then(res => {
+            for (let i = 0; i < res.data.length; i++) {
+                let newP = document.createElement("p").textContent = res.data[i]
+                document.querySelector("body").appendChild(newP)
+            }
+        })
         .catch(err => alert(err))
 }
 
@@ -114,9 +129,9 @@ const repeatMyParam = () => {
     let myResetText = document.getElementById("repeat-text")
     myResetText.style.display = 'block'
 
-    axios.get(`http://localhost:3000/repeat/Hello`)
+    axios.get(`http://localhost:3000/repeat/"Hello World"`)
         .then(res => myResetText.textContent = res.data)
-        .catch(err => {alert(err)})
+        .catch(err => { alert(err) })
 }
 
 let repeatBtn = document.getElementById("repeat-button");
@@ -137,13 +152,24 @@ repeatBtn.addEventListener("click", repeatMyParam);
 /*
     Time to attach a query to our request!
 
-    Write a function that makes a get request to 'http://localhost:3000/query-test', with a query of your choice on the end!
+    Write a function that makes a get request to 'http://localhost:3000/query-test', 
+    with a query of your choice on the end!
 
-    Outside of your new function, select the button with the id "query-button" and add a click event listener that calls your function.
+    Outside of your new function, 
+    select the button with the id "query-button" 
+    and add a click event listener that calls your function.
 */
 
 // CODE HERE
 
+const myQuery = () => {
+    axios.get("http://localhost:3000/query-test?animal=Lions")
+        .then(res => console.log(res.data))
+        .catch(err => { alert(err) })
+}
+
+let queryBtn = document.getElementById("query-button");
+queryBtn.addEventListener("click", myQuery);
 
 
 ////////////////
@@ -152,9 +178,12 @@ repeatBtn.addEventListener("click", repeatMyParam);
 
 // PROBLEM 9
 /*
-    Back in the ohMy function on Problem 5, replace the console log in the promise's callback with a for loop that loops over res.data.
+    Back in the ohMy function on Problem 5,
+    replace the console log in the promise's callback with a for loop that loops over res.data.
 
-    On each iteration of the loop, create a new p element. Set its textContent equal the string at the current index (i) and then append the new p element onto the document's body.
+    On each iteration of the loop, create a new p element.
+    Set its textContent equal the string at the current index (i)
+    and then append the new p element onto the document's body.
 */
 
 // Code in the ohMy function in Problem 5
