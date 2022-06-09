@@ -11,16 +11,22 @@
 
 // CODE HERE
 
+let sayHelloButton = document.querySelector("#say-hello-button")
 
 // PROBLEM 2
 /*
-    Create a function that changes sayHelloButton's background color to black and its text color to white (you can use the .style object or create a CSS class and use classList.add)
+    Create a function that changes sayHelloButton's background color to black and its text color to white 
+    (you can use the .style object or create a CSS class and use classList.add)
     
     Attach a mouseover event to sayHelloButton that calls the function you wrote
 */
 
 // CODE HERE
 
+sayHelloButton.addEventListener("mouseover", function changeColor(event) {
+    event.target.style.backgroundColor = "black";
+    event.target.style.color = "white";
+});
 
 // PROBLEM 3
 /*
@@ -33,6 +39,10 @@
 
 // CODE HERE
 
+sayHelloButton.addEventListener("mouseout", function changeColor(event) {
+    event.target.style.backgroundColor = "";
+    event.target.style.color = "";
+});
 
 // PROBLEM 4
 /*
