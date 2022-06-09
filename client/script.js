@@ -97,15 +97,15 @@ const ohMy = () => {
     axios.get('http://localhost:3000/animals')
         .then(res => {
             for (let i = 0; i < res.data.length; i++) {
-                let newP = document.createElement("p").textContent = res.data[i]
-                document.querySelector("body").appendChild(newP)
+                let newP = document.createElement('p')
+                newP.textContent = res.data[i]
+                document.querySelector('body').appendChild(newP)
             }
         })
         .catch(err => alert(err))
 }
-
-let animalsBtn = document.getElementById('animals-button');
-animalsBtn.addEventListener('click', ohMy);
+let animalsBtn = document.getElementById('animals-button')
+animalsBtn.addEventListener('click', ohMy)
 
 
 // PROBLEM 6 
@@ -222,7 +222,8 @@ queryBtn.addEventListener("click", myQuery);
 
     In this file (script.js), create a function called createFood.
 
-    Inside the function, select the input you just created in the HTML and save it to a variable called foodInput.
+    Inside the function, select the input you just created in the HTML 
+    and save it to a variable called foodInput.
 
     Next, create an object called body inside the function. 
     It should have one key-value pair. 
@@ -230,7 +231,8 @@ queryBtn.addEventListener("click", myQuery);
     and the value should be the value of the food input.
 
     Now make an axios post request to /food. 
-    Inside the parentheses where you passed the URL in, pass in body as the second argument.
+    Inside the parentheses where you passed the URL in, 
+    pass in body as the second argument.
 
     Use a .then to handle the promise returned from the axios call. 
     Pass a callback function to the .then. Inside that callback, console log the res.data.
@@ -240,3 +242,51 @@ queryBtn.addEventListener("click", myQuery);
 */
 
 // CODE HERE 
+
+let foodContainer = document.createElement("div")
+
+function clearFood() {
+    foodContainer.innerHTML = ``
+}
+
+const createFood = (event) => {
+    event.preventDefault()
+    let foodInput = document.getElementById("food-input")
+    let body = { newFood: foodInput.value }
+    axios.post('http://localhost:3000/food', body)
+        .then(res => {
+            clearFood()
+            for (let i = 0; i < res.data.length; i++) {
+                let newP = document.createElement('p')
+                newP.textContent = res.data[i]
+                foodContainer.appendChild(newP)
+            }
+            document.querySelector("body").appendChild(foodContainer)
+        })
+        .catch(err => { alert(err) })
+}
+
+document.getElementById("food-form").addEventListener("submit", createFood)
+
+
+// /////////////////////
+// below is austins code
+// /////////////////////
+
+// const newFoodForm = document.querySelector("#food-form");
+// const newFoodInput = document.querySelector("#food-input");
+
+// const foodInput = (e) => {
+//   e.preventDefault();
+
+//   body = {
+//     newFood: newFoodInput.value,
+//   };
+//   axios
+//     .post(`http://localhost:3000/food`, body)
+//     .then((response) => console.log(response.data));
+
+//   newFoodInput.value = "";
+// };
+
+// newFoodForm.addEventListener("submit", foodInput);
